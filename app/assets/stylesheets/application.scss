@@ -1,0 +1,202 @@
+// Set your brand colors
+$purple: #8a4d76;
+$grays: #A9A9A9; // Base light grey
+$grays: mix($grays, #4B0082, 70%);
+$brown: #BF40BF;
+$beige-light: #d0d1cd;
+$beige-lighter: #eff0eb;
+$text-dark-red: #1a0000;
+
+// Override global Sass variables from the /utilities folder
+@forward "sass/utilities" with (
+  $family-primary: '"Nunito", sans-serif',
+  $grey-dark: $brown,
+  $grey-light: $beige-light,
+  $primary: $grays,
+  $link: $brown,
+  $control-border-width: 2px,
+  $text: $text-dark-red
+);
+
+// Load all styles
+@use "bulma";
+@use "fonts";
+@use "images";
+@use "modal";
+@use "homestyle";
+@use "gridncell";
+@use "cart";
+//@use "rain";
+
+.navbar[data-controller="navbar"] {
+  background: linear-gradient(to top,#4B0082, $grays);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: top 0.3s;
+}
+
+.navbar-burger.is-active span {
+  transform: rotate(45deg);
+}
+
+.navbar-burger.is-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-burger.is-active span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+/*
+.navbar-menu.is-active {
+  display: block;
+}
+*/
+
+
+#home-section {
+  background: linear-gradient(#4B0082, $grays);
+  padding: 4rem 1.5rem; // Add some padding for better spacing
+}
+
+#home-below-section {
+  background: linear-gradient(to bottom, $grays, #FFFFFF);
+}
+
+#home-footer {
+  background: linear-gradient(to bottom,#4B0082, $grays);
+  padding: 4rem 1.5rem; // Add some padding for better spacing
+}
+#login-button {
+//  background: #F3CFC6;
+  color: white;
+}
+
+#text-container {
+  position: relative;
+  font-size: 48px;
+}
+
+.cursor {
+  opacity: 1;
+  animation: blink 1s step-end infinite;
+  color: #0096FF;
+}
+
+@keyframes blink {
+  from, to {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+ 
+
+.slide-in-from-left {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 1s ease-in-out;
+}
+
+.slide-in-from-left.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  75% {
+    transform: translateX(100%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-left {
+  animation: slideInFromLeft 3s ease-in-out forwards;
+}
+
+/*
+.dynamic-text {
+  color: #3F00FF;
+}*/
+.dynamic-text {
+  background: linear-gradient(#3F00FF, #1F51FF, #00A36C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+#size-one {
+  @include size(200px, 100px);
+}
+
+#flying-cart {
+  @include size(50%, 40vh);
+}
+
+// Custom variables for dots
+$dot-size: 6px;
+$dot-opacity: 0.6;
+$dot-color: $grays;
+$dots-count: 25; // Adjust based on how many dots you want
+
+// Keyframes for fading in and out
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  60% { opacity: $dot-opacity; }
+}
+
+// Dot styling
+.dot {
+  position: absolute;
+  width: $dot-size;
+  height: $dot-size;
+  background-color: $dot-color;
+  border-radius: 50%;
+  animation: fadeInOut 4s infinite ease-in-out;
+  pointer-events: none;
+}
+
+// Container for dots
+.white-dot-background {
+  position: relative;
+  overflow: hidden;
+}
+
+// Generate dots
+@for $i from 1 through $dots-count {
+  .dot-#{$i} {
+    @extend .dot;
+    // Random initial position
+    top: random(100) * 1%;
+    left: random(100) * 1%;
+    
+    // Random delay to stagger animations
+    animation-delay: #{random(50) / 10}s;
+  }
+}
+
+.nav-hidden {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-out;
+}
+
+

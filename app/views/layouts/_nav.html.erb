@@ -1,0 +1,102 @@
+<nav class="navbar has-background-link" role="navigation" aria-label="main navigation" data-controller="navbar" data-navbar-target="nav">
+  <div class="navbar-brand">
+    <%= link_to image_tag('text.svg', width: 100, height: 80, class: 'image mt-4', style: 'object-fit: contain;'), '/' %>
+<div data-controller="navbar-init">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="menu" data-navbar-targer="burger">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div></div>
+
+  <div id="menu" class="navbar-menu my-gradient" data-navbar-target="menu">
+    <div class="navbar-start family-primary">
+      <a class="navbar-item my-gradient" href="/about" style="color: #F3CFC6;">
+        O Nas
+      </a>
+<%= link_to "View Products", products_path, class: "navbar-item my-gradient", style: "color: #F3CFC6;" %>
+<%= button_to 'Zaloguj', '#', id: 'login-button', class: 'button is-rounded mt-2 mr-6 is-success is-outlined' %>
+<%#=
+      <div class="navbar-item has-dropdown is-hoverable my-gradient">
+        <a class="navbar-link my-gradient" href="#">
+          Pomoc
+        </a>
+
+        <div class="navbar-dropdown has-background-link">
+          <a class="navbar-item has-background-link" href="/contact">
+            Contact
+          </a>
+          <hr class="navbar-divider has-background-link">
+          <a class="navbar-item has-background-link" href="/help">
+            Report an issue
+          </a>
+       </div> </div> %>
+    </div>
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <%= link_to url_for(locale: :de), class: "font-lobster #{'is-active' if I18n.locale == :de}" do %>
+          <span><%= image_tag('de.svg', class: "icon is-medium") %></span>
+        <% end %>
+      </div>
+      <div class="navbar-item">
+        <%= link_to url_for(locale: :pl), class: "font-lobster #{'is-active' if I18n.locale == :pl}" do %>
+          <span><%= image_tag('pl.svg', class: "icon is-medium is-round") %></span>
+        <% end %>
+      </div>
+
+      <div class="navbar-item">
+        <%= link_to url_for(locale: :en), class: "font-lobster #{'is-active' if I18n.locale == :en}" do %>
+          <span><%= image_tag('gb.svg', class: "icon is-medium") %></span>
+        <% end %>
+      </div>
+    <div class="navbar-item cart-toggle" data-controller="cart-init">
+      <input type="checkbox" id="cart-toggle-checkbox" class="cart-toggle-checkbox">
+      <label for="cart-toggle-checkbox" class="cart-toggle-label">
+        <%= image_tag('shopping-cart.svg', class: "cart-icon icon is-medium mt-2 mr-5", data: { controller: 'slide-in' }) %>
+      </label>
+      <div id="cart-dropdown" class="cart-dropdown is-hidden dropdown is-right">
+        <div class="dropdown-content">
+          <% if @cart_items&.any? %>
+            <% @cart_items.each do |item| %>
+              <div class="dropdown-item">
+                <%= item.name %> - <%= number_to_currency(item.price) %>
+              </div>
+            <% end %>
+            <hr class="dropdown-divider">
+            <div class="dropdown-item">
+              Total: <%= number_to_currency(@cart_items.sum(&:price)) %>
+            </div>
+            <%= link_to 'Checkout', "#", class: "dropdown-item" %>
+          <% else %>
+            <div class="dropdown-item">Your cart is empty</div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</nav>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const $navbarBurgers = Array.from(document.querySelectorAll('.navbar-burger'));
+    $navbarBurgers.forEach(el => {
+      el.addEventListener('click', () => {
+        const target = el.dataset.target;
+        const $target = document.getElementById(target);
+        el.classList.toggle('is-active');
+        $target.classList.toggle('is-active');
+      });
+    });
+  });
+</script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const checkbox = document.getElementById('cart-toggle-checkbox');
+        const dropdown = document.getElementById('cart-dropdown');
+
+        if (checkbox && dropdown) {
+          checkbox.addEventListener('change', () => {
+            dropdown.classList.toggle('is-hidden', !checkbox.checked);
+          });
+        }
+      });
+    </script>

@@ -1,0 +1,32 @@
+.cart-toggle {
+  position: relative;
+}
+
+.cart-toggle-checkbox {
+/* Hide the actual checkbox */
+  display: none;
+}
+
+.cart-toggle-label {
+  cursor: pointer; /* Change cursor to indicate clickable area */
+}
+
+.cart-icon {
+  /* Your icon styling here, if needed */
+}
+
+.cart-dropdown {
+  position: absolute;
+  top: 100%; /* Position it below the icon */
+  right: 0; /* Align to the right */
+  /* Additional styling for your dropdown */
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* When checkbox is checked, show the dropdown */
+.cart-toggle-checkbox:checked ~ .cart-dropdown {
+  display: block;
+}

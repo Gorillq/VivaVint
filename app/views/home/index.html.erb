@@ -1,0 +1,48 @@
+<div class="section" id="home-section">
+  <div class="container" style="padding: 16px;"><div class="white-dot-background" data-controller="dot-background" data-dot-background-target="dotContainer">
+  <% (1..25).each do |i| %>
+    <div class="dot dot-<%= i %>"></div>
+  <% end %>
+    <div class="grid" data-controller="grid">
+      <div class="cell mb-6">
+        <%= image_tag('homelogo.svg', class: 'slide-in-from-left', id: "flying-cart", data: { controller: 'grow' }) %>
+      </div>
+      <div class="cell mb-6">
+        <%= image_tag('homelogo.svg', class: 'slide-in-from-left', id: "flying-cart", data: { controller: 'grow' }) %>
+      </div>
+      <div class="cell is-col-span-2 mt-6">
+        <div data-controller="typewriter">
+          <div id="text-container" data-typewriter-target="text" style="font-size: 32px; position: relative; font-family: 'typing';">
+            <span class="static-text">Customers hate </span>
+            <span class="dynamic-part"></span>
+            <span id="cursor" data-typewriter-target="cursor" class="cursor">|</span>
+<br>
+            <span class="static-text"> and love </span>
+            <span class="dynamic-part-2"></span>
+            <span id="cursor2" data-typewriter-target="cursor2" class="cursor">|</span>
+          </div>
+        </div><div class="section is-small">
+<%= button_to "Feel free to shop!" , '#', class: "button is-info is-focused is-rounded is-large has-text-link mt-6 has-text-centered", style: "font-family: 'typing';" %></div>
+      </div></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="home-below-section">
+  <div class="container">
+    <div class="grid">
+      <div class="cell font-inter" id="cellone" data-grid-controller="cell">
+        <%= image_tag('proxy.png') %>
+      </div>
+      <div class="cell is-col-from-end-2">
+        <p class="font-lobster">Customers hate complexity and love simplicity.</p>
+<p class="font-lobster">Customers hate waiting and love instant gratification.</p>
+<p class="font-lobster">Customers hate confusion and love clear information.</p>
+<p class="font-lobster">Customers hate hidden fees and love transparent pricing.</p>
+<p class="font-lobster">Customers hate complicated processes and love seamless experiences.</p>
+<p class="font-lobster">Customers hate poor service and love exceptional support.</p>
+<p class="font-lobster">Customers hate limited options and love a wide variety of choices.</p><p class="font-lobster has-text-centered">Malo periculosam libertatem quam quietum servitium.</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<%= form_with(model: @product, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :main_image %>
+    <%= form.file_field :main_image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gallery_images %>
+    <%= form.file_field :gallery_images, multiple: true %>
+  </div>
+<% end %>

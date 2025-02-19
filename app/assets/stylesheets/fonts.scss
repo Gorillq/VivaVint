@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Giga&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400&display=swap');
+
+
+.font-lexend {
+  font-family: 'Lexend Giga', sans-serif;
+}
+
+.font-lobster {
+  font-family: 'Lobster', cursive;
+  font-size: 20px;
+}
+
+.font-inter {
+	font-family: 'Inter Tight', italic;
+	font-size: 22px;
+}
+
+.font-rulesone {
+  font-family: 'Lexend';
+  font-size:36px;
+}
+
+.font-contact {
+  font-family: 'Lobster', sans-serif;
+  font-size: 40px;
+}
+
+@font-face {
+  font-family: 'matcha';
+  src: url( 'Matcha-EaLge.ttf' ) format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: 100;
+}
+
+@font-face {
+  font-family: 'typing';
+  src: url('AbrilFatface-Regular.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}

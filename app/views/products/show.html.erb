@@ -1,0 +1,10 @@
+<h1><%= @product.title %></h1>
+<p><%= @product.description %></p>
+<p>Price: <%= number_to_currency(@product.price) %></p>
+<%#<%= button_to 'Add to Cart', add_item_cart_path(product_id: @product.id), method: :post %>
+<div data-controller="cart-add">
+<form data-cart-add-target="form" action="/cart/add_item" method="post">
+  <input type="hidden" name="product_id" value="<%= @product.id %>">
+  <button type="submit" data-action="cart-add#addProduct">Add to Cart</button>
+</form>
+</div>

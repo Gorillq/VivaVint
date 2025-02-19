@@ -1,0 +1,14 @@
+.modal-content {
+  .image {
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.modal {
+  &.is-active {
+    display: flex;
+  }
+}
