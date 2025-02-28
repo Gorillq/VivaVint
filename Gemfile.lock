@@ -264,7 +264,7 @@ GEM
       activesupport
       rails (>= 3.0.0)
       thor (>= 0.19.1)
-    rexml (3.4.0)
+    rexml (3.4.1)
     rubocop (1.72.0)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
@@ -309,7 +309,7 @@ GEM
     sass-embedded (1.85.0-x86_64-linux-musl)
       google-protobuf (~> 4.29)
     securerandom (0.4.1)
-    selenium-webdriver (4.28.0)
+    selenium-webdriver (4.29.1)
       base64 (~> 0.2)
       logger (~> 1.4)
       rexml (~> 3.2, >= 3.2.5)
